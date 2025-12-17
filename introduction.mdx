@@ -1,20 +1,21 @@
 ---
-title: Welcome to Samosa Documentation
-description: An overview of Samosa, your default documentation space for organizing and managing project documentation efficiently.
+title: Welcome to Samosa
+description: 'A Social Trading Layer for Perps, Spot and Analytics'
 ---
-
 ## Overview
 
 Samosa provides your default documentation space. You organize and manage all project documentation here with ease. Leverage powerful MDX components, version control, and search to create professional docs.
 
-<Columns cols={3}>
-  <Card title="Rich Components" icon="components" href="/docs/components">
+<Columns cols="3">
+  <Card title="Rich Components" href="/docs/components" icon="components" horizontal="false">
     Build engaging pages with `<Callout>`, `<Steps>`, `<Tabs>`, and more.
   </Card>
-  <Card title="Versioned Docs" icon="git-branch" href="/docs/versions">
+
+  <Card title="Versioned Docs" href="/docs/versions" icon="git-branch" horizontal="false">
     Maintain multiple versions and changelog with `<Update>` components.
   </Card>
-  <Card title="Search & Navigation" icon="search" href="/docs/search">
+
+  <Card title="Search & Navigation" href="/docs/search" icon="search" horizontal="false">
     Enable full-text search and intuitive sidebar navigation.
   </Card>
 </Columns>
@@ -24,11 +25,14 @@ Samosa provides your default documentation space. You organize and manage all pr
 You gain several advantages with Samosa:
 
 - **Centralized Management**: Store all docs in one space with folders and tags.
+
 - **MDX Superpowers**: Write in Markdown with JSX components for interactive content.
+
 - **Collaboration**: Share edit access and track changes via Git integration.
+
 - **Customizable**: Theme with your brand colors like `#3B82F6`.
 
-<Callout kind="tip">
+<Callout kind="tip" collapsed="false">
   Customize your theme by setting primary color to `#3B82F6` in site config for a branded look.
 </Callout>
 
@@ -37,28 +41,32 @@ You gain several advantages with Samosa:
 Follow these steps to set up your first documentation site.
 
 <Steps>
-  <Step title="Create Account" icon="user-plus">
+  <Step title="Create Account" icon="user-plus" title-type="p">
     Sign up at `https://app.samosa-docs.com` with your email.
   </Step>
-  <Step title="New Workspace" icon="plus">
+
+  <Step title="New Workspace" icon="plus" title-type="p">
     Click **New Workspace** and name it `my-project-docs`.
   </Step>
-  <Step title="Add First Page" icon="file-plus">
+
+  <Step title="Add First Page" icon="file-plus" title-type="p">
     Create `introduction.mdx` and add frontmatter with `title` and `description`.
   </Step>
-  <Step title="Publish" icon="globe">
+
+  <Step title="Publish" icon="globe" title-type="p">
     Deploy to a custom domain like `docs.myproject.com`.
   </Step>
 </Steps>
 
 For code setup, initialize your docs repo:
 
-<CodeGroup tabs="npm,yarn">
+<CodeGroup show-lines="true" tabs={[]}>
   ```bash
   npm init samosa-docs@latest my-docs
   cd my-docs
   npm run dev
   ```
+
   ```bash
   yarn create samosa-docs my-docs
   cd my-docs
@@ -78,9 +86,11 @@ Access help through multiple channels.
       Dive into custom components and API integrations.
     </Expandable>
   </Tab>
+
   <Tab title="Community" icon="users">
     Join Discord: `https://discord.gg/samosa-docs`.
   </Tab>
+
   <Tab title="GitHub" icon="github">
     Report issues: `https://github.com/samosa-docs/platform`.
   </Tab>
