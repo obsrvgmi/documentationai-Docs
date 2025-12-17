@@ -1,0 +1,132 @@
+---
+title: Quick Start with Samosa
+description: Get up and running quickly by setting up your first documentation project in Samosa.
+---
+
+## Overview
+
+Samosa helps you build and manage beautiful documentation sites with MDX. Follow these steps to create your account, set up a project, add your first page, and navigate the interface. You will have a live documentation site in under 10 minutes.
+
+<Callout kind="tip">
+  Use the web dashboard for your first project—no command-line tools required.
+</Callout>
+
+## Step-by-Step Setup
+
+Complete the quickstart using these sequential steps.
+
+<Steps>
+  <Step title="Create Account" icon="user-plus">
+    Visit [app.samosa.dev](https://app.samosa.dev) and click **Sign Up**.
+
+    Fill in your email and password, or use GitHub OAuth for faster setup.
+
+    Verify your email to activate the account.
+  </Step>
+
+  <Step title="Create Project" icon="plus">
+    From the dashboard, click **New Project**.
+
+    Enter project details:
+
+    | Field       | Value Example             |
+    |-------------|---------------------------|
+    | Name        | My Docs                   |
+    | Subdomain   | mydocs.samosa.dev         |
+    | Description | Project documentation hub |
+
+    Select **Blank Template** and click **Create**.
+  </Step>
+
+  <Step title="Add Initial Content" icon="file-text">
+    In the project editor, create `quickstart.mdx`:
+
+    <CodeGroup tabs="MDX,YAML">
+      ```mdx
+      ---
+      title: Quick Start
+      description: Get started fast.
+      ---
+
+      ## Hello World
+
+      Your first documentation page.
+      ```
+
+      ```yaml
+      # Frontmatter example
+      title: Quick Start
+      description: Get started fast.
+      ```
+    </CodeGroup>
+
+    Click **Commit & Publish** to deploy.
+  </Step>
+
+  <Step title="Navigate Your Site" icon="compass">
+    Visit your live site at `mydocs.samosa.dev`.
+
+    Use the sidebar for navigation, search bar for quick finds, and top nav for pages.
+
+    Edit pages directly from the preview.
+  </Step>
+</Steps>
+
+## Platform-Specific Installation (Optional CLI)
+
+For advanced users, install the Samosa CLI locally.
+
+<Tabs>
+  <Tab title="npm" icon="package">
+    ```bash
+    npm install -g @samosa/cli
+    samosa init my-docs
+    cd my-docs
+    samosa dev
+    ```
+  </Tab>
+
+  <Tab title="yarn" icon="package">
+    ```bash
+    yarn global add @samosa/cli
+    samosa init my-docs
+    cd my-docs
+    yarn samosa dev
+    ```
+  </Tab>
+
+  <Tab title="pnpm" icon="package">
+    ```bash
+    pnpm add -g @samosa/cli
+    samosa init my-docs
+    cd my-docs
+    pnpm samosa dev
+    ```
+  </Tab>
+</Tabs>
+
+## Next Steps
+
+Explore these features to enhance your docs.
+
+<Columns cols={3}>
+  <Card title="Customize Theme" icon="palette" href="/docs/themes">
+    Adjust colors, fonts, and logos using the theme editor.
+  </Card>
+
+  <Card title="Add Components" icon="puzzle" href="/docs/components">
+    Use rich MDX components like Steps and Tabs.
+  </Card>
+
+  <Card title="Version Control" icon="git-branch" href="/docs/versions">
+    Manage multiple doc versions with Git integration.
+  </Card>
+</Columns>
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+  - **Site not updating?** Wait 30 seconds for deployment or check commit status.
+  - **Custom domain issues?** Verify DNS `CNAME` points to `samosa.dev`.
+  - **MDX parsing errors?** Escape `{` and `}` with backticks in prose.
+</Expandable>
+
+Your Samosa project is now live! Add more pages and collaborate with your team.

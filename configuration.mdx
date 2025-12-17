@@ -1,0 +1,150 @@
+---
+title: Configuring Samosa
+description: Customize your documentation space with themes, branding, and settings to match your project needs.
+---
+
+## Overview
+
+Configure Samosa to align with your project's identity and workflow. Adjust themes, set brand colors like the default `#3B82F6`, manage user permissions, and handle export/import for backups or migrations. These settings ensure your documentation feels native to your brand.
+
+<Columns cols={2}>
+  <Card title="Themes & Layouts" icon="palette" href="#themes">
+    Switch between light/dark modes and layouts.
+  </Card>
+  <Card title="Branding" icon="brush" href="#branding">
+    Customize colors and logos.
+  </Card>
+  <Card title="Permissions" icon="users" href="#permissions">
+    Control access levels.
+  </Card>
+  <Card title="Export/Import" icon="upload" href="#export">
+    Backup or migrate content.
+  </Card>
+</Columns>
+
+## Theme and Layout Options
+
+Choose from predefined themes or create custom ones. Samosa supports light, dark, and auto modes, plus layout variants like sidebar or full-width.
+
+<Steps>
+  <Step title="Access Settings" icon="settings">
+    Navigate to **Project Settings** > **Appearance**.
+  </Step>
+  <Step title="Select Theme" icon="palette">
+    Pick a theme from the dropdown.
+  </Step>
+  <Step title="Preview Changes" icon="eye">
+    Toggle preview to see live updates.
+  </Step>
+  <Step title="Save" icon="save">
+    Apply changes across your space.
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="JSON Config" icon="code">
+    Edit `samosa.config.json` directly:
+
+    ```json
+    {
+      "theme": {
+        "mode": "dark",
+        "layout": "sidebar"
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="YAML Config" icon="file-text">
+    Use YAML for `samosa.config.yaml`:
+
+    ```yaml
+    theme:
+      mode: light
+      layout: full-width
+    ```
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+  Auto mode detects user preference via `prefers-color-scheme`.
+</Callout>
+
+## Brand Color Customization
+
+Override the default `#3B82F6` primary color to match your brand. Apply it to buttons, links, and accents.
+
+```javascript
+// In samosa.config.json
+{
+  "branding": {
+    "primaryColor": "#10B981",
+    "logoUrl": "https://your-domain.com/logo.svg"
+  }
+}
+```
+
+Test colors with the built-in palette picker in settings. Changes propagate instantly without rebuilds.
+
+## User Permissions
+
+Define roles to secure your documentation. Use granular controls for read, write, and admin access.
+
+| Role       | Read | Write | Admin | Delete |
+|------------|------|-------|-------|--------|
+| Viewer     | ✅   | ❌    | ❌    | ❌     |
+| Editor     | ✅   | ✅    | ❌    | ❌     |
+| Admin      | ✅   | ✅    | ✅    | ✅     |
+
+<Expandable title="Advanced Permissions" default-open="false">
+
+Configure via API or config file:
+
+```json
+{
+  "permissions": {
+    "roles": [
+      {
+        "name": "editor",
+        "scopes": ["read", "write"]
+      }
+    ]
+  }
+}
+```
+
+Invite users by email in the **Team** tab.
+
+</Expandable>
+
+## Export and Import Settings
+
+Backup your space or migrate to another instance. Exports include MDX pages, assets, and configs.
+
+<CodeGroup tabs="CLI,UI">
+  ```bash
+  # Export via CLI
+  samosa export --output ./backup.zip --include-assets
+  ```
+
+  ```bash
+  # Import via CLI
+  samosa import ./backup.zip --overwrite
+  ```
+</CodeGroup>
+
+In the UI, go to **Settings** > **Export** to download a ZIP. For imports, upload via the same panel.
+
+<Callout kind="warning">
+  Exports exclude sensitive data like API keys. Review `samosa.config.json` separately.
+</Callout>
+
+```mermaid
+graph LR
+    A[Start Config] --> B[Edit JSON/YAML]
+    B --> C[Preview Theme]
+    C --> D[Set Permissions]
+    D --> E[Export Backup]
+    E --> F[Done]
+```
+
+These configurations make Samosa adaptable to any project scale. Start with themes for quick wins, then refine permissions as your team grows.

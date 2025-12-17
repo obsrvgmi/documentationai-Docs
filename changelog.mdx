@@ -1,0 +1,154 @@
+---
+title: Changelog
+description: Track the evolution of Samosa with details on recent updates and improvements.
+---
+
+## Recent Changes
+
+Samosa evolves quickly. You stay informed through this changelog, which details new features, improvements, bug fixes, and breaking changes across versions. Check here before upgrading your documentation site.
+
+<Update label="2024-10-15" description="v1.0.0" tags={["feature", "breaking", "improvement"]}>
+
+## New Features
+
+- Introduce real-time collaboration for teams editing documentation simultaneously.
+- Add custom brand color support, like `{brandColor: '#3B82F6'}` in your config.
+- Launch AI-powered search that understands context and suggests related pages.
+
+## Improvements
+
+- Boost page load speeds by `{30}%` with optimized image handling.
+- Enhance MDX parsing to support nested components without errors.
+
+## Bug Fixes
+
+- Resolve parsing issues with unescaped `{` and `}` characters in prose.
+- Fix heading hierarchy enforcement, ensuring you always start with H2.
+
+</Update>
+
+<Update label="2024-09-20" description="v0.9.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Enable YAML frontmatter validation to prevent blank line errors.
+- Add 20+ new Lucide icons for components like `<Callout>` and `<Card>`.
+
+## Improvements
+
+- Refine component syntax rules for zero parsing failures.
+- Improve accessibility with required `alt` attributes on all `<Image>` components.
+
+## Bug Fixes
+
+- Correct self-closing tags for container components like `<Steps>`.
+- Patch Mermaid diagram rendering, now using code blocks exclusively.
+
+</Update>
+
+<Update label="2024-08-10" description="v0.8.0" tags={["improvement", "bugfix"]}>
+
+## Improvements
+
+- Streamline JSX attribute handling with double-quote enforcement.
+- Optimize documentation generation for 5-8 diverse components per page.
+
+## Bug Fixes
+
+- Eliminate H1 heading usage in generated MDX content.
+- Stabilize nested code blocks with proper 4-backtick syntax.
+
+</Update>
+
+## Upgrade Instructions
+
+Follow these steps to upgrade Samosa to the latest version. Backup your site first.
+
+<Steps>
+  <Step title="Backup Your Site" icon="database">
+
+  Create a full backup of your documentation repository.
+
+  ```bash
+  git clone your-repo samosa-backup
+  tar -czf samosa-backup-$(date +%Y%m%d).tar.gz samosa-backup
+  ```
+
+  </Step>
+  <Step title="Install Latest Version" icon="download">
+    <Tabs>
+      <Tab title="npm" icon="package">
+        ```bash
+        npm install samosa-docs@latest
+        ```
+      </Tab>
+      <Tab title="yarn" icon="package">
+        ```bash
+        yarn add samosa-docs@latest
+        ```
+      </Tab>
+    </Tabs>
+  </Step>
+  <Step title="Update Configuration" icon="settings">
+
+  Edit your `{config.js}` file to include the new brand color.
+
+  <CodeGroup tabs="JavaScript,TypeScript">
+  ```javascript
+  export default {
+    brandColor: '#3B82F6',
+    components: { enabled: true }
+  };
+  ```
+  ```typescript
+  const config: Config = {
+    brandColor: '#3B82F6',
+    components: { enabled: true }
+  };
+  export default config;
+  ```
+  </CodeGroup>
+
+  </Step>
+  <Step title="Rebuild and Deploy" icon="rocket">
+
+  ```bash
+  npm run build
+  npm run deploy
+  ```
+
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+
+Test your site after upgrading. Verify no parsing errors occur with components like `<Update>` and Mermaid diagrams.
+
+</Callout>
+
+## Quick Access
+
+<Columns cols={3}>
+  <Card title="Guides" icon="book-open" href="/docs/guides">
+    Access installation and configuration guides.
+  </Card>
+  <Card title="Components" icon="code" href="/docs/components">
+    Full reference for `<Steps>`, `<Tabs>`, and more.
+  </Card>
+  <Card title="Troubleshooting" icon="help-circle" href="/docs/troubleshooting">
+    Fix common MDX parsing issues.
+  </Card>
+</Columns>
+
+## Upcoming Features
+
+<Expandable title="What's Next?" default-open="false">
+
+Plan includes:
+- Native support for `<Video>` embeds from multiple platforms.
+- Advanced theming with dynamic `{brandColor}` propagation.
+- Automated changelog generation from git commits.
+
+Stay tuned for v1.1.0 in November.
+
+</Expandable>
