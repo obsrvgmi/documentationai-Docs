@@ -1,23 +1,27 @@
 ---
 title: Configuring Samosa
-description: Customize your documentation space with themes, branding, and settings to match your project needs.
+description: >-
+  Customize your documentation space with themes, branding, and settings to
+  match your project needs.
 ---
-
 ## Overview
 
 Configure Samosa to align with your project's identity and workflow. Adjust themes, set brand colors like the default `#3B82F6`, manage user permissions, and handle export/import for backups or migrations. These settings ensure your documentation feels native to your brand.
 
-<Columns cols={2}>
-  <Card title="Themes & Layouts" icon="palette" href="#themes">
+<Columns cols="3">
+  <Card title="Themes & Layouts" href="#themes" icon="palette" horizontal="false">
     Switch between light/dark modes and layouts.
   </Card>
-  <Card title="Branding" icon="brush" href="#branding">
+
+  <Card title="Branding" href="#branding" icon="brush" horizontal="false">
     Customize colors and logos.
   </Card>
-  <Card title="Permissions" icon="users" href="#permissions">
+
+  <Card title="Permissions" href="#permissions" icon="users" horizontal="false">
     Control access levels.
   </Card>
-  <Card title="Export/Import" icon="upload" href="#export">
+
+  <Card title="Export/Import" href="#export" icon="upload" horizontal="false">
     Backup or migrate content.
   </Card>
 </Columns>
@@ -27,16 +31,19 @@ Configure Samosa to align with your project's identity and workflow. Adjust them
 Choose from predefined themes or create custom ones. Samosa supports light, dark, and auto modes, plus layout variants like sidebar or full-width.
 
 <Steps>
-  <Step title="Access Settings" icon="settings">
+  <Step title="Access Settings" icon="settings" title-type="p">
     Navigate to **Project Settings** > **Appearance**.
   </Step>
-  <Step title="Select Theme" icon="palette">
+
+  <Step title="Select Theme" icon="palette" title-type="p">
     Pick a theme from the dropdown.
   </Step>
-  <Step title="Preview Changes" icon="eye">
+
+  <Step title="Preview Changes" icon="eye" title-type="p">
     Toggle preview to see live updates.
   </Step>
-  <Step title="Save" icon="save">
+
+  <Step title="Save" icon="save" title-type="p">
     Apply changes across your space.
   </Step>
 </Steps>
@@ -54,6 +61,7 @@ Choose from predefined themes or create custom ones. Samosa supports light, dark
     }
     ```
   </Tab>
+
   <Tab title="YAML Config" icon="file-text">
     Use YAML for `samosa.config.yaml`:
 
@@ -65,7 +73,7 @@ Choose from predefined themes or create custom ones. Samosa supports light, dark
   </Tab>
 </Tabs>
 
-<Callout kind="tip">
+<Callout kind="tip" collapsed="false">
   Auto mode detects user preference via `prefers-color-scheme`.
 </Callout>
 
@@ -89,38 +97,36 @@ Test colors with the built-in palette picker in settings. Changes propagate inst
 
 Define roles to secure your documentation. Use granular controls for read, write, and admin access.
 
-| Role       | Read | Write | Admin | Delete |
-|------------|------|-------|-------|--------|
-| Viewer     | ✅   | ❌    | ❌    | ❌     |
-| Editor     | ✅   | ✅    | ❌    | ❌     |
-| Admin      | ✅   | ✅    | ✅    | ✅     |
+| Role   | Read | Write | Admin | Delete |
+| ------ | ---- | ----- | ----- | ------ |
+| Viewer | ✅    | ❌     | ❌     | ❌      |
+| Editor | ✅    | ✅     | ❌     | ❌      |
+| Admin  | ✅    | ✅     | ✅     | ✅      |
 
 <Expandable title="Advanced Permissions" default-open="false">
+  Configure via API or config file:
 
-Configure via API or config file:
-
-```json
-{
-  "permissions": {
-    "roles": [
-      {
-        "name": "editor",
-        "scopes": ["read", "write"]
-      }
-    ]
+  ```json
+  {
+    "permissions": {
+      "roles": [
+        {
+          "name": "editor",
+          "scopes": ["read", "write"]
+        }
+      ]
+    }
   }
-}
-```
+  ```
 
-Invite users by email in the **Team** tab.
-
+  Invite users by email in the **Team** tab.
 </Expandable>
 
 ## Export and Import Settings
 
 Backup your space or migrate to another instance. Exports include MDX pages, assets, and configs.
 
-<CodeGroup tabs="CLI,UI">
+<CodeGroup show-lines="true" tabs={[]}>
   ```bash
   # Export via CLI
   samosa export --output ./backup.zip --include-assets
@@ -134,7 +140,7 @@ Backup your space or migrate to another instance. Exports include MDX pages, ass
 
 In the UI, go to **Settings** > **Export** to download a ZIP. For imports, upload via the same panel.
 
-<Callout kind="warning">
+<Callout kind="warning" collapsed="false">
   Exports exclude sensitive data like API keys. Review `samosa.config.json` separately.
 </Callout>
 
